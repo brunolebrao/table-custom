@@ -12,13 +12,11 @@ class App extends Component {
                 <table>
                     <thead>
                     <tr>
-                        {theadData.map((item, key) => <th key={key} style={{padding: 10}}>{item.translated_name}</th>)}
+                        {Object.keys(tbodyData.results[1].custom_fields).map((_,index) => <th key={index} style={{padding: 10}}>{tbodyData.results[1].custom_fields[_].name}</th>)}
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td> Aqui o tbodyData um array que chama custom_fields</td>
-                    </tr>
+                    {tbodyData.results.map((_, index) => <tr key={index}>{_.custom_fields.map((t, index) => <td key={index}>{t.translated_value}</td>)}</tr>)}
                     </tbody>
                 </table>
             </div>
